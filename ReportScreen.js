@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Pressable } from 'react-nativ
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const ReportScreen = () => {
+const ReportScreen = ({ navigation }) => { // Adicione a prop navigation aqui
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [reportType, setReportType] = useState('');
@@ -25,6 +25,7 @@ const ReportScreen = () => {
 
   const generateReport = () => {
     console.log(`Gerando relatório: ${reportType} de ${startDate.toLocaleDateString()} a ${endDate.toLocaleDateString()}`);
+    navigation.navigate('ReportView'); // Agora a navigation está disponível aqui
   };
 
   return (
